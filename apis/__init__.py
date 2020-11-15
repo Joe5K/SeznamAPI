@@ -1,7 +1,7 @@
 from flask_restx import Api
 
-from .file_namespace import ns as file_api
-from .folder_namespace import ns as folder_api
+from .file_namespace import ns as file_ns
+from .folder_namespace import ns as folder_ns
 
 api = Api(
     title='Seznam API',
@@ -9,5 +9,5 @@ api = Api(
     doc=False
 )
 
-api.add_namespace(folder_api, path='/folder')
-api.add_namespace(file_api, path='/file')
+api.add_namespace(folder_ns, path='/folder')
+api.add_namespace(file_ns, path='/file')

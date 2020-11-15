@@ -2,7 +2,7 @@ import os
 
 from werkzeug.exceptions import Forbidden
 
-from core.config import ALLOWED_PATH
+from .config import ALLOWED_PATH
 
 
 def permitted_path(value):
