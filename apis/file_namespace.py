@@ -31,7 +31,7 @@ class FileInfo(Resource):
 
         if os.path.isfile(path):
             return File(path)
-        raise NotFound
+        raise UnprocessableEntity
 
     @ns.expect(parser)
     @ns.response(204, 'File deleted')

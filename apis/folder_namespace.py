@@ -32,7 +32,7 @@ class FolderInfo(Resource):
 
         if os.path.isdir(path):
             return Folder(path)
-        raise NotFound
+        raise UnprocessableEntity
 
     @ns.expect(parser)
     @ns.response(204, 'Folder deleted')
