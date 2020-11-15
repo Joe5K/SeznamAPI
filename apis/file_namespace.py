@@ -4,7 +4,7 @@ from flask_restx import Namespace, Resource, fields
 from werkzeug.exceptions import UnprocessableEntity
 
 from core.file import File
-from core.path_permission import permissed_path
+from core.path_permission import permitted_path
 
 ns = Namespace('Files', description='Files related operations')
 
@@ -19,7 +19,7 @@ file_model = ns.model('File model', {
 @ns.route('', methods=['GET', 'POST', 'DELETE'])
 class FileInfo(Resource):
     parser = ns.parser()
-    parser.add_argument('path', type=permissed_path, help='Path to file')
+    parser.add_argument('path', type=permitted_path, help='Path to file')
 
     @ns.expect(parser)
     @ns.marshal_list_with(file_model)

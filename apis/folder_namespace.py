@@ -5,7 +5,7 @@ from werkzeug.exceptions import UnprocessableEntity
 
 from apis.file_namespace import file_model
 from core.folder import Folder
-from core.path_permission import permissed_path
+from core.path_permission import permitted_path
 
 ns = Namespace('Folders', description='Folders related operations')
 
@@ -20,7 +20,7 @@ folder_model["sub_folders"] = fields.List(fields.Nested(folder_model))
 @ns.route('', methods=['GET', 'DELETE'])
 class FolderInfo(Resource):
     parser = ns.parser()
-    parser.add_argument('path', type=permissed_path, help='Path to folder')
+    parser.add_argument('path', type=permitted_path, help='Path to folder')
 
     @ns.expect(parser)
     @ns.marshal_list_with(folder_model)
