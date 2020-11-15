@@ -1,1 +1,1 @@
-ALLOWED_PATH = 'D:\\jozok\\Downloads\\xxxx'
+ALLOWED_PATH = 'D:\\'
