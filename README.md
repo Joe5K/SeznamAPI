@@ -2,7 +2,7 @@
 Test assignment for Seznam.cz
 
 ### Install
-1. Download and install python >=3.5, pip and pipenv
+1. Download and install python 3.5, pip and pipenv
 2. Run `pipenv install`
 
 ### Run
