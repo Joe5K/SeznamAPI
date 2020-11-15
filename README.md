@@ -8,7 +8,10 @@ Test assignment for Seznam.cz
 ### Run
 1. Run `pipenv run deploy`
 
-## API usage
+### Path permissions
+You can edit accessible path in core/config.py file
+
+### API usage
 Get list of files and folders in path:
 ```
 curl -X GET 127.0.0.1:5000/folder?path=D:\Downloads
@@ -29,6 +32,3 @@ Create new file
 ```
 curl -X POST 127.0.0.1:5000/file?path=D:\Downloads\file.txt
 ```
-
-### Path permissions
-You can edit accessible path in core/config.py file
