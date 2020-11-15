@@ -31,4 +31,4 @@ curl -X POST 127.0.0.1:5000/file?path=D:\Downloads\file.txt
 ```
 
 ### Path permissions
-You can edit accessible path in core/path_permission.py file
+You can edit accessible path in core/config.py file

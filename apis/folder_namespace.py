@@ -1,12 +1,11 @@
 import os
-from pathlib import Path
 
 from flask_restx import Namespace, Resource, fields
-from werkzeug.exceptions import Forbidden, UnprocessableEntity, NotFound
+from werkzeug.exceptions import UnprocessableEntity
 
 from apis.file_namespace import file_model
-from core.path_permission import ALLOWED_PATH, permissed_path
 from core.folder import Folder
+from core.path_permission import permissed_path
 
 ns = Namespace('Folders', description='Folders related operations')
 
@@ -23,11 +22,11 @@ class FolderInfo(Resource):
     parser = ns.parser()
     parser.add_argument('path', type=permissed_path, help='Path to folder')
 
-    @ns.marshal_list_with(folder_model)
     @ns.expect(parser)
+    @ns.marshal_list_with(folder_model)
     def get(self, **kwargs):
-        path = self.parser.parse_args()['path']
-
+        args = self.parser.parse_args()
+        path = args['path']
         if os.path.isdir(path):
             return Folder(path)
         raise UnprocessableEntity
@@ -35,8 +34,8 @@ class FolderInfo(Resource):
     @ns.expect(parser)
     @ns.response(204, 'Folder deleted')
     def delete(self, **kwargs):
-        path = self.parser.parse_args()['path']
-
+        args = self.parser.parse_args()
+        path = args['path']
         try:
             os.rmdir(path)
             return '', 204
