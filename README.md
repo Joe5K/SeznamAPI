@@ -8,7 +8,7 @@ Test assignment for Seznam.cz
 ### Run
 1. Run `pipenv run deploy`
 
-### Path permissions
+### Accessible path
 You can edit accessible path in core/config.py file
 
 ### API usage
