@@ -5,7 +5,8 @@ from .folder_namespace import ns as folder_api
 
 api = Api(
     title='Seznam API',
-    version='1.0'
+    version='1.0',
+    doc=False
 )
 
 api.add_namespace(folder_api, path='/folder')
